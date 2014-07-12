@@ -25,5 +25,12 @@ with(power, plot(Sub_metering_1 ~ as.POSIXct(paste(power$Date,power$Time)), type
 with(power, lines(Sub_metering_1 ~ as.POSIXct(paste(power$Date,power$Time)), col="black"))
 with(power, lines(Sub_metering_2 ~ as.POSIXct(paste(power$Date,power$Time)), col="red"))
 with(power, lines(Sub_metering_3 ~ as.POSIXct(paste(power$Date,power$Time)), col="blue"))
+
+#add legend
+legend("topright", c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), 
+       lty=c(1, 1, 1),
+       lwd=c(2.5, 2.5, 2.5),col=c("Black", "red", "blue"))
+
+#create png file
 dev.copy(png, file=paste(stPath, "plot3.png", sep=""), width=480, height=480)
 dev.off()
